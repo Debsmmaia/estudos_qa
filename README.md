@@ -8,4 +8,5 @@ Este repositório foi criado como parte do meu plano de estudos focado em Qualit
 2. Criação de casos de uso
 3. Criação de casos de teste
 4. Testes manuais
-5. Registros de bugs no sistema 
+5. Registros de bugs no sistema
+6. Automação de testes - Selenium WebDriver
