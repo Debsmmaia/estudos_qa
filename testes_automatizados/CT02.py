@@ -10,31 +10,37 @@ import time
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))  # Conecta o selenium com o chrome (baixa automaticamente)
 
 # acessa o site
-driver.get("https://sauce-demo.myshopify.com/account/login")
+driver.get("https://sauce-demo.myshopify.com/account/register")
 
 # abre o navegador em tela cheia (evita erros)
 driver.maximize_window()
 
-wait = WebDriverWait(driver, 10)
+wait = WebDriverWait(driver, 20)
+
+# preenche nome e sobrenome
+driver.find_element(By.CSS_SELECTOR, "input#first_name").send_keys("Julia")
+driver.find_element(By.CSS_SELECTOR, "input#last_name").send_keys("Dias")
 
 # preenche email
-driver.find_element(By.ID, "customer_email").send_keys("deborahmaia48@gmail.com")
+driver.find_element(By.CSS_SELECTOR, "input#email").send_keys("Julia@gmail.com")
 
 # preenche senha
-driver.find_element(By.ID, "customer_password").send_keys("12345678")
+driver.find_element(By.CSS_SELECTOR, "input#password").send_keys("12345678")
 
-# clica no botão login
-driver.find_element(By.CSS_SELECTOR, "input[value='Sign In']").click()
+# clica no botão de criar usuário
+driver.find_element(By.CSS_SELECTOR, "input[value='Create']").click()
 
 # espera carregar
 time.sleep(3)
 
-# Validaão
+# Validação
 try:
     wait.until(EC.url_contains("account"))
-    print("✅ CT-02 PASSOU - Login realizado com sucesso")
+    print("✅ CT-01 PASSOU - Usuário criado com sucesso")
 except:
-    print("❌ CT-02 FALHOU - Login não funcionou")
+    print("❌ CT-01 FALHOU - Criação de usuário não funcionou")
 
 # fecha navegador
 driver.quit()
+
+#TESTE BEM SUCEDIDO 
