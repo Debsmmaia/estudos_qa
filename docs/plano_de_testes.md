@@ -12,6 +12,7 @@ Este documento descreve o plano de testes da plataforma web Sauce Demo, tendo co
 # Escopo
 
 Dentro do escopo:
+
 • Criação de um novo usuário
 
 • Login de usuário
@@ -25,6 +26,7 @@ Dentro do escopo:
 • Finalização de compra (checkout)
 
 Fora do escopo:
+
 • Teste de segurança
 
 • Integrações externas
@@ -33,12 +35,13 @@ Fora do escopo:
 
 # Estratégia de Teste
 
-Os testes serão realizados em duas etapas:
-• Testes manuais
+Os testes serão realizados em duas etapas, primeiramente com os testes manuais para validação inicial e em segundo momento feito com automação utilizando Selenium
 
-• Criação de casos de teste
+# 🛠️ Ferramentas
 
-• Execução manual para validação inicial
+• Linguagem: Python
 
-• Testes automatizados
+• Automação: Selenium
+
+• Versionamento: GitHub
 
