@@ -82,12 +82,34 @@ Sistema deve exibir erro informando que o e-mail ou senha estão incorretos
 
 ## CT-07 - Login com campos vazios
 
-Resultado esperado:
+**Resultado esperado:**  
 Sistema deve exibir validação de campos obrigatórios
 
 ---
 
-## CT-08 - Finalizar compra sem preencher dados
+## CT-08 - Mudanças no carrinho 
 
-Resultado esperado:
+**Pré-condição:**  
+Ter produtos no carrinho de compras
+
+**Passos:**
+1. Usuário acessa o carrinho
+2. Clica no botão para excluir um item
+
+**Resultado esperado:**  
+Sistema deve remover o item do carrinho 
+
+---
+
+## CT-09 - Finalizar compra sem preencher dados
+
+**Resultado esperado:**  
 Sistema deve impedir a finalização e exibir erro
+
+---
+
+## CT-10 - Buscar itens do sistema
+
+**Resultado esperado:**  
+O sistema deve retornar os produtos relacionados a pesquisa realizada
+
