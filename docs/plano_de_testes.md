@@ -11,7 +11,7 @@ Este documento descreve o plano de testes da plataforma web Sauce Demo, tendo co
 
 # Escopo
 
-Dentro do escopo:
+##Dentro do escopo:
 
 • Criação de um novo usuário
 
@@ -25,7 +25,7 @@ Dentro do escopo:
 
 • Finalização de compra (checkout)
 
-Fora do escopo:
+##Fora do escopo:
 
 • Teste de segurança
 
