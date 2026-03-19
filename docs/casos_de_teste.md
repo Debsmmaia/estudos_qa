@@ -43,7 +43,7 @@ Usuário cadastrado no sistema
 Usuário deve ser redirecionado para sua conta
 
 **Resultado obtido:**  
-O login foi realizado com sucesso
+Usuário foi redirecionado para a página de conta após login
 
 **Status:**  
 ✅ Passou
