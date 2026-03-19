@@ -10,28 +10,29 @@ import time
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))  # Conecta o selenium com o chrome (baixa automaticamente)
 
 # acessa o site
-driver.get("https://sauce-demo.myshopify.com/account/login")
+driver.get("https://sauce-demo.myshopify.com/")
 
 # abre o navegador em tela cheia (evita erros)
 driver.maximize_window()
 
 wait = WebDriverWait(driver, 10)
 
-# preenche email
-driver.find_element(By.ID, "customer_email").send_keys("deborahmaia48@gmail.com")
+# clica no produto
+driver.find_element(By.CSS_SELECTOR, "#product-1").click()
 
-# preenche senha
-driver.find_element(By.ID, "customer_password").send_keys("12345678")
+# clica para escolher a cor
+driver.find_element(By.CSS_SELECTOR, "#add").click()
 
-# clica no botão login
-driver.find_element(By.CSS_SELECTOR, "input[value='Sign In']").click()
+# necessário esperar o produto ser adicionado para clicar
+time.sleep(2)
 
-# Validação
-try:
-    wait.until(EC.url_contains("account"))
-    print("✅ CT-02 PASSOU - Login realizado com sucesso")
-except:
-    print("❌ CT-02 FALHOU - Login não funcionou")
+# espera para ser encontrado e após ser encontrado, clica no botão
+checkout_btn = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".checkout")))
+checkout_btn.click()
+
+time.sleep(2)
+checkout_btn_2 = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#checkout")))
+checkout_btn_2.click()
 
 # fecha navegador
 driver.quit()

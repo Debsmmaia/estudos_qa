@@ -18,22 +18,24 @@ driver.maximize_window()
 wait = WebDriverWait(driver, 10)
 
 # preenche email
-driver.find_element(By.ID, "customer_email").send_keys("deborahmaia48@gmail.com")
+driver.find_element(By.ID, "customer_email").send_keys(" ")
 
 # preenche senha
-driver.find_element(By.ID, "customer_password").send_keys("12345678")
+driver.find_element(By.ID, "customer_password").send_keys(" ")
 
 # clica no botão login
 driver.find_element(By.CSS_SELECTOR, "input[value='Sign In']").click()
 
-# Validação
-try:
-    wait.until(EC.url_contains("account"))
-    print("✅ CT-02 PASSOU - Login realizado com sucesso")
-except:
-    print("❌ CT-02 FALHOU - Login não funcionou")
+# Espera a mensagem de erro aparecer na tela 
+erro_localizado = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".errors"))) #espera o erro ficar visível
 
-# fecha navegador
-driver.quit()
+# 2Obtem o texto escrito 
+texto_exibido = erro_localizado.text
 
-#TESTE BEM SUCEDIDO
+# Se conter essa parte no texto da tela, o código continua
+assert "Incorrect email or password." in texto_exibido #assert verifica o texto
+
+print("✅ Sucesso: O sistema barrou o login vazio.")
+
+# TESTE FALHOU
+# O site possui captcha, então não foi possível criar outro usuário 

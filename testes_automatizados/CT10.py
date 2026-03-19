@@ -10,30 +10,26 @@ import time
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))  # Conecta o selenium com o chrome (baixa automaticamente)
 
 # acessa o site
-driver.get("https://sauce-demo.myshopify.com/account/login")
+driver.get("https://sauce-demo.myshopify.com/")
 
 # abre o navegador em tela cheia (evita erros)
 driver.maximize_window()
 
-wait = WebDriverWait(driver, 10)
+wait = WebDriverWait(driver, 20)
 
+time.sleep(2)
 # preenche email
-driver.find_element(By.ID, "customer_email").send_keys("deborahmaia48@gmail.com")
+driver.find_element(By.CSS_SELECTOR, ".search").send_keys("Grey")
+driver.find_element(By.CSS_SELECTOR, "#search-submit").submit()
 
-# preenche senha
-driver.find_element(By.ID, "customer_password").send_keys("12345678")
+time.sleep(2)
+palavra_localizada = wait.until(EC.visibility_of_element_located((By.ID, "keyword")))
+resultado = palavra_localizada.text
+# Espera o item estar visível e encontra a palavra pesquisada no retorno da busca
 
-# clica no botão login
-driver.find_element(By.CSS_SELECTOR, "input[value='Sign In']").click()
+assert "grey" in resultado.lower()
 
-# Validação
-try:
-    wait.until(EC.url_contains("account"))
-    print("✅ CT-02 PASSOU - Login realizado com sucesso")
-except:
-    print("❌ CT-02 FALHOU - Login não funcionou")
+print(f"✅ Sucesso: A busca foi feita corretamente!")
 
-# fecha navegador
 driver.quit()
-
-#TESTE BEM SUCEDIDO
+ 

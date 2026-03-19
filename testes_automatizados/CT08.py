@@ -23,9 +23,21 @@ driver.find_element(By.CSS_SELECTOR, "#product-1").click()
 # clica para escolher a cor
 driver.find_element(By.CSS_SELECTOR, "#add").click()
 
-time.sleep(5)
+# necessário esperar o produto ser adicionado para clicar
+time.sleep(2)
+
+# espera para ser encontrado e após ser encontrado, clica no botão
+checkout_btn = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "a.toggle-drawer.cart.desktop")))
+checkout_btn.click()
+
+time.sleep(20)
+
+# espera para ser encontrado e após ser encontrado, clica no botão
+checkout_btn_2 = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "a.removeLine")))
+checkout_btn_2.click()
 
 # fecha navegador
 driver.quit()
 
-#TESTE BEM SUCEDIDO 
+#TESTE SEM SUCESSO
+# O carrinho de compras não carrega, sendo necessário fechar e abrir o sistema novamente

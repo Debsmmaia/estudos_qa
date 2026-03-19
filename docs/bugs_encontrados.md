@@ -45,3 +45,26 @@ Não há opção para escolher quantidade
 **Descrição:**  
 O sistema não permite ao usuário definir a quantidade de produtos antes de adicionar ao carrinho.
 
+## BUG-03 - Carrinho de compras não abre no primeiro acesso
+
+**Severidade:** Alta
+**Prioridade:** Alta
+
+**Ambiente:**  
+Navegador Chrome - Windows  
+
+**Passos para reproduzir:**
+1. Acessar a página inicial
+2. Selecionar um produto
+3. Adicionar um produto ao carrinho
+4. CLicar no botão do carrinho
+
+**Resultado esperado:**  
+Sistema deve carregar o carrinho com todos os itens escolhidos do cliente de forma rápida
+
+**Resultado obtido:**  
+O carrinho de compras não carrega e não abre
+
+**Descrição:**  
+O sistema não carrega o carrinho no primeiro acesso, sendo necessário ou recarregar a página ou fechar a abrir novamente
+

@@ -30,13 +30,11 @@ driver.find_element(By.CSS_SELECTOR, "input#password").send_keys("12345678")
 # clica no botão de criar usuário
 driver.find_element(By.CSS_SELECTOR, "input[value='Create']").click()
 
-# espera carregar
-time.sleep(3)   
 
 # Espera a mensagem de erro aparecer na tela 
 erro_localizado = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".errors"))) #espera o erro ficar visível
 
-# 2Obtem o texto escrito 
+# Obtem o texto escrito 
 texto_exibido = erro_localizado.text
 
 # Se conter essa parte no texto da tela, o código continua
